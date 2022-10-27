@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutte_pokedex/helper/colorTheme.dart';
+import 'package:flutte_pokedex/model/pokemonList.dart';
+import 'package:flutte_pokedex/scoped_model/pokemonState.dart';
+import 'package:flutte_pokedex/widgets/customWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:poke_poke_dex/helper/colorTheme.dart';
-import 'package:poke_poke_dex/model/pokemonList.dart';
-import 'package:poke_poke_dex/scoped_model/pokemonState.dart';
-import 'package:poke_poke_dex/widgets/customWidget.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -13,7 +13,7 @@ import 'pokemonDetails/baseState.dart';
 import 'pokemonDetails/moves.dart';
 
 class PokemonDetailPage extends StatefulWidget {
-  PokemonDetailPage({required this.name});
+  PokemonDetailPage({this.name});
   final String name;
   // MainModel model;
   _PokemonDetailPageState createState() => _PokemonDetailPageState();
@@ -21,16 +21,16 @@ class PokemonDetailPage extends StatefulWidget {
 
 class _PokemonDetailPageState extends State<PokemonDetailPage>
     with TickerProviderStateMixin {
-  late PokemonListModel model;
+  PokemonListModel model;
   double opacity = 0;
   int sliderPageno = 0;
   bool isFavourite = false;
-  late FlutterTts flutterTts ;
-  late List<dynamic> languages ;
+  FlutterTts flutterTts ;
+   List<dynamic> languages ;
   @override
- late AnimationController _controller;
- late AnimationController _progressController;
- late Animation<double> _progressAnimation;
+  AnimationController _controller;
+  AnimationController _progressController;
+  Animation<double> _progressAnimation;
 
   @override
   void dispose() {
@@ -124,7 +124,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage>
            ),
            Padding(
              padding: EdgeInsets.only(top: 10),
-             child:  customText('#' + (model.orderId.toString().length == 1  ? '00' + model.orderId.toString() : model.orderId.toString().length == 2 ? '0'+model.orderId.toString() : model.orderId.toString()),style: TextStyle(fontSize: getFontSize(context,20),color: Colors.white,fontWeight: FontWeight.w600), context: context,),
+             child:  customText('#' + (model.orderId.toString().length == 1  ? '00' + model.orderId.toString() : model.orderId.toString().length == 2 ? '0'+model.orderId.toString() : model.orderId.toString()),style: TextStyle(fontSize: getFontSize(context,20),color: Colors.white,fontWeight: FontWeight.w600),),
            )
           ],
         ),
@@ -172,22 +172,22 @@ class _PokemonDetailPageState extends State<PokemonDetailPage>
             SizedBox(
               height: 10,
             ),
-            _evaluationChainRow('Lvl 15',state.pokemonDetail.name),
+            _evaluationChainRow('Lvl 15',state?.pokemonDetail?.name),
            Divider(),
             SizedBox(
               height: 5,
             ),
-            _evaluationChainRow('Lvl 16',state.pokemonDetail.name),
+            _evaluationChainRow('Lvl 16',state?.pokemonDetail?.name),
             Divider(),
             SizedBox(
               height: 5,
             ),
-            _evaluationChainRow('Lvl 17',state.pokemonDetail.name),
+            _evaluationChainRow('Lvl 17',state?.pokemonDetail?.name),
            Divider(),
             SizedBox(
               height: 5,
             ),
-            _evaluationChainRow('Lvl 18',state.pokemonDetail.name),
+            _evaluationChainRow('Lvl 18',state?.pokemonDetail?.name),
             SizedBox(
               height: 20,
             ),
@@ -249,7 +249,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage>
         ),
         customText(
           name,
-          style: TextStyle(fontSize: getFontSize(context,14)), context: context,
+          style: TextStyle(fontSize: getFontSize(context,14)),
         )
       ],
     );
@@ -280,7 +280,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage>
       if(state.pokemonSpecies != null && state.pokemonSpecies.genera != null && state.pokemonSpecies.genera.length > 0){
          var type = state.pokemonSpecies.genera.firstWhere((x)=>x.language.name == 'en').genus;
          return customText(type,
-                style: TextStyle(color: Colors.white60, fontSize: getFontSize(context,18)), context: context,
+                style: TextStyle(color: Colors.white60, fontSize: getFontSize(context,18)),
               );
       }
       else{

@@ -1,7 +1,9 @@
+import 'package:flutte_pokedex/helper/colorTheme.dart';
+import 'package:flutte_pokedex/model/pokemon.dart';
+import 'package:flutte_pokedex/model/pokemonList.dart';
+import 'package:flutte_pokedex/scoped_model/pokemonState.dart';
+import 'package:flutte_pokedex/widgets/customWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:poke_poke_dex/model/pokemon.dart';
-import 'package:poke_poke_dex/model/pokemonList.dart';
-import 'package:poke_poke_dex/scoped_model/pokemonState.dart';
 import 'package:provider/provider.dart';
 import '../../helper/colorTheme.dart';
 import '../../widgets/customWidget.dart';
@@ -17,12 +19,12 @@ class PokemonListPage extends StatefulWidget {
 
 class _PokemonListPageState extends State<PokemonListPage>  with TickerProviderStateMixin {
   List<Pokemon> list = [];
-  late AnimationController _controller;
+  AnimationController _controller;
   bool isOpened = false;
-  late AnimationController _animationController;
-  late Animation<double> _animateIcon;
+  AnimationController _animationController;
+  Animation<double> _animateIcon;
   Curve _curve = Curves.easeOut;
-  late Animation<double> _translateButton;
+  Animation<double> _translateButton;
   bool showFabButton =  false, card1 = true,card2= false, card3 = false;
 
   @override
@@ -252,12 +254,12 @@ class _PokemonListPageState extends State<PokemonListPage>  with TickerProviderS
     ],);
   }
   
-  Widget _smallFabButton(IconData iconData,{ required Function onPressed,double? animationValue,bool? isEnable,String text = ''}){
+  Widget _smallFabButton(IconData iconData,{Function onPressed,double animationValue,bool isEnable,String text = ''}){
     return  Container(
               margin:  EdgeInsets.symmetric(vertical: 8),
               child: Transform(
               transform: Matrix4.translationValues(
-                 _translateButton.value * animationValue!,
+                 _translateButton.value * animationValue,
                  0.0,
                  0.0,
               ),
@@ -268,12 +270,12 @@ class _PokemonListPageState extends State<PokemonListPage>  with TickerProviderS
                   borderRadius: new BorderRadius.circular(30.0),
                 ),
                 child: InkWell(
-                  onTap:() => onPressed,
+                  onTap: onPressed,
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 15,vertical: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
-                      color: isEnable! ? Color(0xff6c79dc) : Colors.white,//isEnable ? Colors.blue : Colors.white
+                      color: isEnable ? Color(0xff6c79dc) : Colors.white,//isEnable ? Colors.blue : Colors.white
                     ),
                     child: Row(
                       children: <Widget>[
@@ -447,8 +449,8 @@ class _PokemonListPageState extends State<PokemonListPage>  with TickerProviderS
 }
 
 class PokemonSearch extends SearchDelegate<PokemonListModel>{
-  late final List<PokemonListModel> list;
-   late List<PokemonListModel> templist;
+   final List<PokemonListModel> list;
+    List<PokemonListModel> templist;
   PokemonSearch(this.list);
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -464,7 +466,7 @@ class PokemonSearch extends SearchDelegate<PokemonListModel>{
   Widget buildLeading(BuildContext context) {
     return IconButton(
       onPressed: (){
-        close(context, PokemonListModel());
+        close(context, null);
       },
       icon: Icon(Icons.arrow_back,color: Theme.of(context).primaryColor,),
     );

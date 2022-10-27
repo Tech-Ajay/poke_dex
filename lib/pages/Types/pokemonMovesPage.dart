@@ -1,23 +1,25 @@
+import 'package:flutte_pokedex/helper/enum.dart';
+import 'package:flutte_pokedex/scoped_model/moveState.dart';
 import 'package:flutter/material.dart';
-import 'package:poke_poke_dex/helper/enum.dart';
-import 'package:poke_poke_dex/scoped_model/moveState.dart';
-import 'package:poke_poke_dex/widgets/customWidget.dart';
 import 'package:provider/provider.dart';
 
+import '../../helper/colorTheme.dart';
+import '../../widgets/customWidget.dart';
+import '../../widgets/customWidget.dart';
 
 class PokemonMovesPage extends StatefulWidget {
   final HomePageButtonEnum pagetype;
-  PokemonMovesPage({Key? key,required this.pagetype}) : super(key: key);
+  PokemonMovesPage({Key key,this.pagetype}) : super(key: key);
  
   @override
   _PokemonMovesPageState createState() => _PokemonMovesPageState();
 }
 
 class _PokemonMovesPageState extends State<PokemonMovesPage> with TickerProviderStateMixin {
-  late ScrollController _scrollController;
-  late AnimationController _controller;
-  late Color primary;
-  late Color secondary;
+  ScrollController _scrollController;
+  AnimationController _controller;
+  Color primary;
+  Color secondary;
 
   @override
   void initState() {

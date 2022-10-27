@@ -9,29 +9,29 @@ PokemonMoves pokemonMovesFromJson(String str) => PokemonMoves.fromJson(json.deco
 String pokemonMovesToJson(PokemonMoves data) => json.encode(data.toJson());
 
 class PokemonMoves {
-    int? accuracy;
-    ContestCombos? contestCombos;
-    ContestEffect? contestEffect;
-    ContestType? contestType;
-    ContestType? damageClass;
-    dynamic? effectChance;
-    List<dynamic>? effectChanges;
-    List<EffectEntry>? effectEntries;
-    List<FlavorTextEntry>? flavorTextEntries;
-    ContestType? generation;
-    int? id;
-    List<dynamic>? machines;
-    Meta? meta;
-    String? name;
-    List<Name>? names;
-    List<dynamic>? pastValues;
-    int? power;
-    int? pp;
-    int? priority;
-    List<dynamic>? statChanges;
-    ContestEffect? superContestEffect;
-    ContestType? target;
-    ContestType? type;
+    int accuracy;
+    ContestCombos contestCombos;
+    ContestEffect contestEffect;
+    ContestType contestType;
+    ContestType damageClass;
+    dynamic effectChance;
+    List<dynamic> effectChanges;
+    List<EffectEntry> effectEntries;
+    List<FlavorTextEntry> flavorTextEntries;
+    ContestType generation;
+    int id;
+    List<dynamic> machines;
+    Meta meta;
+    String name;
+    List<Name> names;
+    List<dynamic> pastValues;
+    int power;
+    int pp;
+    int priority;
+    List<dynamic> statChanges;
+    ContestEffect superContestEffect;
+    ContestType target;
+    ContestType type;
 
     PokemonMoves({
         this.accuracy,
@@ -87,34 +87,34 @@ class PokemonMoves {
 
     Map<String, dynamic> toJson() => {
         "accuracy": accuracy,
-        "contest_combos": contestCombos!.toJson(),
-        "contest_effect": contestEffect!.toJson(),
-        "contest_type": contestType!.toJson(),
-        "damage_class": damageClass!.toJson(),
+        "contest_combos": contestCombos.toJson(),
+        "contest_effect": contestEffect.toJson(),
+        "contest_type": contestType.toJson(),
+        "damage_class": damageClass.toJson(),
         "effect_chance": effectChance,
-        "effect_changes": List<dynamic>.from(effectChanges!.map((x) => x)),
-        "effect_entries": List<dynamic>.from(effectEntries!.map((x) => x.toJson())),
-        "flavor_text_entries": List<dynamic>.from(flavorTextEntries!.map((x) => x.toJson())),
-        "generation": generation!.toJson(),
+        "effect_changes": List<dynamic>.from(effectChanges.map((x) => x)),
+        "effect_entries": List<dynamic>.from(effectEntries.map((x) => x.toJson())),
+        "flavor_text_entries": List<dynamic>.from(flavorTextEntries.map((x) => x.toJson())),
+        "generation": generation.toJson(),
         "id": id,
-        "machines": List<dynamic>.from(machines!.map((x) => x)),
-        "meta": meta!.toJson(),
+        "machines": List<dynamic>.from(machines.map((x) => x)),
+        "meta": meta.toJson(),
         "name": name,
-        "names": List<dynamic>.from(names!.map((x) => x.toJson())),
-        "past_values": List<dynamic>.from(pastValues!.map((x) => x)),
+        "names": List<dynamic>.from(names.map((x) => x.toJson())),
+        "past_values": List<dynamic>.from(pastValues.map((x) => x)),
         "power": power,
         "pp": pp,
         "priority": priority,
-        "stat_changes": List<dynamic>.from(statChanges!.map((x) => x)),
-        "super_contest_effect": superContestEffect!.toJson(),
-        "target": target!.toJson(),
-        "type": type!.toJson(),
+        "stat_changes": List<dynamic>.from(statChanges.map((x) => x)),
+        "super_contest_effect": superContestEffect.toJson(),
+        "target": target.toJson(),
+        "type": type.toJson(),
     };
 }
 
 class ContestCombos {
-    Normal? normal;
-    Normal? contestCombosSuper;
+    Normal normal;
+    Normal contestCombosSuper;
 
     ContestCombos({
         this.normal,
@@ -127,14 +127,14 @@ class ContestCombos {
     );
 
     Map<String, dynamic> toJson() => {
-        "normal": normal!.toJson(),
-        "super": contestCombosSuper!.toJson(),
+        "normal": normal.toJson(),
+        "super": contestCombosSuper.toJson(),
     };
 }
 
 class Normal {
-    List<ContestType>? useAfter;
-    List<ContestType>? useBefore;
+    List<ContestType> useAfter;
+    List<ContestType> useBefore;
 
     Normal({
         this.useAfter,
@@ -147,14 +147,14 @@ class Normal {
     );
 
     Map<String, dynamic> toJson() => {
-        "use_after": useAfter == null ? null : List<dynamic>.from(useAfter!.map((x) => x.toJson())),
-        "use_before": useBefore == null ? null : List<dynamic>.from(useBefore!.map((x) => x.toJson())),
+        "use_after": useAfter == null ? null : List<dynamic>.from(useAfter.map((x) => x.toJson())),
+        "use_before": useBefore == null ? null : List<dynamic>.from(useBefore.map((x) => x.toJson())),
     };
 }
 
 class ContestType {
-    String? name;
-    String? url;
+    String name;
+    String url;
 
     ContestType({
         this.name,
@@ -173,7 +173,7 @@ class ContestType {
 }
 
 class ContestEffect {
-    String? url;
+    String url;
 
     ContestEffect({
         this.url,
@@ -189,9 +189,9 @@ class ContestEffect {
 }
 
 class EffectEntry {
-    String? effect;
-    ContestType? language;
-    String? shortEffect;
+    String effect;
+    ContestType language;
+    String shortEffect;
 
     EffectEntry({
         this.effect,
@@ -207,15 +207,15 @@ class EffectEntry {
 
     Map<String, dynamic> toJson() => {
         "effect": effect,
-        "language": language!.toJson(),
+        "language": language.toJson(),
         "short_effect": shortEffect,
     };
 }
 
 class FlavorTextEntry {
-    String? flavorText;
-    ContestType? language;
-    ContestType? versionGroup;
+    String flavorText;
+    ContestType language;
+    ContestType versionGroup;
 
     FlavorTextEntry({
         this.flavorText,
@@ -231,24 +231,24 @@ class FlavorTextEntry {
 
     Map<String, dynamic> toJson() => {
         "flavor_text": flavorText,
-        "language": language!.toJson(),
-        "version_group": versionGroup!.toJson(),
+        "language": language.toJson(),
+        "version_group": versionGroup.toJson(),
     };
 }
 
 class Meta {
-    ContestType? ailment;
-    int? ailmentChance;
-    ContestType? category;
-    int? critRate;
-    int? drain;
-    int? flinchChance;
-    int? healing;
+    ContestType ailment;
+    int ailmentChance;
+    ContestType category;
+    int critRate;
+    int drain;
+    int flinchChance;
+    int healing;
     dynamic maxHits;
     dynamic maxTurns;
     dynamic minHits;
     dynamic minTurns;
-    int? statChance;
+    int statChance;
 
     Meta({
         this.ailment,
@@ -281,9 +281,9 @@ class Meta {
     );
 
     Map<String, dynamic> toJson() => {
-        "ailment": ailment!.toJson(),
+        "ailment": ailment.toJson(),
         "ailment_chance": ailmentChance,
-        "category": category!.toJson(),
+        "category": category.toJson(),
         "crit_rate": critRate,
         "drain": drain,
         "flinch_chance": flinchChance,
@@ -297,8 +297,8 @@ class Meta {
 }
 
 class Name {
-    ContestType? language;
-    String? name;
+    ContestType language;
+    String name;
 
     Name({
         this.language,
@@ -311,7 +311,7 @@ class Name {
     );
 
     Map<String, dynamic> toJson() => {
-        "language": language!.toJson(),
+        "language": language.toJson(),
         "name": name,
     };
 }

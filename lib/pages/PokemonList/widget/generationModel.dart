@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../helper/colorTheme.dart';
 import '../../../widgets/customWidget.dart';
 class GenerationModel extends StatelessWidget {
-  const GenerationModel({Key? key}) : super(key: key);
+  const GenerationModel({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

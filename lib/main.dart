@@ -1,9 +1,8 @@
-
+import 'package:flutte_pokedex/model/pokemon.dart';
+import 'package:flutte_pokedex/pages/homePageBody.dart';
+import 'package:flutte_pokedex/pages/pokemonDetailPage.dart';
+import 'package:flutte_pokedex/scoped_model/moveState.dart';
 import 'package:flutter/material.dart';
-import 'package:poke_poke_dex/model/pokemon.dart';
-import 'package:poke_poke_dex/pages/homePageBody.dart';
-import 'package:poke_poke_dex/pages/pokemonDetailPage.dart';
-import 'package:poke_poke_dex/scoped_model/moveState.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/PokemonList/pokemonListPage.dart';
@@ -13,8 +12,8 @@ import 'scoped_model/pokemonState.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  late Pokemon pokemonModel;
- late PokemonState _pokemonState = PokemonState();
+  Pokemon pokemonModel;
+  PokemonState _pokemonState = PokemonState();
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
             '/detail': (BuildContext context) => PokemonDetailPage()
           },
           onGenerateRoute: (settings) {
-            final List<String> pathElements = settings.name!.split('/');
+            final List<String> pathElements = settings.name.split('/');
             if (pathElements[0] != '') {
               return null;
             }

@@ -1,6 +1,7 @@
+import 'package:flutte_pokedex/helper/enum.dart';
+import 'package:flutte_pokedex/scoped_model/pokemonState.dart';
+import 'package:flutte_pokedex/widgets/customWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:poke_poke_dex/helper/enum.dart';
-import 'package:poke_poke_dex/scoped_model/pokemonState.dart';
 import 'package:provider/provider.dart';
 import '../helper/colorTheme.dart';
 import '../widgets/customWidget.dart';
@@ -73,15 +74,15 @@ class _HomePageBodyState extends State<HomePageBody> {
     );
   }
  
-  Widget _buttonRow(String text1, String text2,{Color? primary1,Color? secondary1,Color? primary2,Color? secondary2}){
+  Widget _buttonRow(String text1, String text2,{Color primary1,Color secondary1,Color primary2,Color secondary2}){
     return  AnimatedContainer(
           curve: Curves.linear,
           duration: Duration(milliseconds: 300),
           height: isViewAll ? 0 : getDimention(context,78),
           child: Row(
             children: <Widget>[
-              _getCategoryCard(text1,primary1!,secondary1!),
-              _getCategoryCard(text2, primary2!,secondary2!)
+              _getCategoryCard(text1,primary1,secondary1),
+              _getCategoryCard(text2, primary2,secondary2)
             ],
           ),
         );

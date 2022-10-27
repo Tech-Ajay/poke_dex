@@ -8,7 +8,7 @@ PokemonDetail pokemonDetailFromJson(String str) {
   return  PokemonDetail.fromJson(json.decode(str));
 }
 PokemonDetail pokemonDetailFromJson1(String str) {
-   return PokemonDetail.fromJson(json.decode(str).map((x) => PokemonDetail.fromJson(x)));
+    PokemonDetail.fromJson(json.decode(str).map((x) => PokemonDetail.fromJson(x)));
      
     // String welcomeToJson(List<PokemonListModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
   }
@@ -16,23 +16,23 @@ PokemonDetail pokemonDetailFromJson1(String str) {
 String pokemonDetailToJson(PokemonDetail data) => json.encode(data.toJson());
 
 class PokemonDetail {
-    int? id;
-    String? name;
-    int? baseExperience;
-    int? height;
-    bool? isDefault;
-    int? order;
-    int? weight;
-    List<Ability>? abilities;
-    List<Species>? forms;
-    List<GameIndex>? gameIndices;
-    List<HeldItem>? heldItems;
-    List<LocationAreaEncounter>? locationAreaEncounters;
-    List<Move>? moves;
-    Species? species;
-    Sprites? sprites;
-    List<Stat>? stats;
-    List<Type>? types;
+    int id;
+    String name;
+    int baseExperience;
+    int height;
+    bool isDefault;
+    int order;
+    int weight;
+    List<Ability> abilities;
+    List<Species> forms;
+    List<GameIndex> gameIndices;
+    List<HeldItem> heldItems;
+    List<LocationAreaEncounter> locationAreaEncounters;
+    List<Move> moves;
+    Species species;
+    Sprites sprites;
+    List<Stat> stats;
+    List<Type> types;
 
     PokemonDetail({
         this.id,
@@ -82,23 +82,23 @@ class PokemonDetail {
         "is_default": isDefault,
         "order": order,
         "weight": weight,
-        "abilities": List<dynamic>.from(abilities!.map((x) => x.toJson())),
-        "forms": List<dynamic>.from(forms!.map((x) => x.toJson())),
-        "game_indices": List<dynamic>.from(gameIndices!.map((x) => x.toJson())),
-        "held_items": List<dynamic>.from(heldItems!.map((x) => x.toJson())),
-        "location_area_encounters": List<dynamic>.from(locationAreaEncounters!.map((x) => x.toJson())),
-        "moves": List<dynamic>.from(moves!.map((x) => x.toJson())),
-        "species": species!.toJson(),
-        "sprites": sprites!.toJson(),
-        "stats": List<dynamic>.from(stats!.map((x) => x.toJson())),
-        "types": List<dynamic>.from(types!.map((x) => x.toJson())),
+        "abilities": List<dynamic>.from(abilities.map((x) => x.toJson())),
+        "forms": List<dynamic>.from(forms.map((x) => x.toJson())),
+        "game_indices": List<dynamic>.from(gameIndices.map((x) => x.toJson())),
+        "held_items": List<dynamic>.from(heldItems.map((x) => x.toJson())),
+        "location_area_encounters": List<dynamic>.from(locationAreaEncounters.map((x) => x.toJson())),
+        "moves": List<dynamic>.from(moves.map((x) => x.toJson())),
+        "species": species.toJson(),
+        "sprites": sprites.toJson(),
+        "stats": List<dynamic>.from(stats.map((x) => x.toJson())),
+        "types": List<dynamic>.from(types.map((x) => x.toJson())),
     };
 }
 
 class Ability {
-    bool? isHidden;
-    int? slot;
-    Species? ability;
+    bool isHidden;
+    int slot;
+    Species ability;
 
     Ability({
         this.isHidden,
@@ -115,13 +115,13 @@ class Ability {
     Map<String, dynamic> toJson() => {
         "is_hidden": isHidden,
         "slot": slot,
-        "ability": ability!.toJson(),
+        "ability": ability.toJson(),
     };
 }
 
 class Species {
-    String? name;
-    String? url;
+    String name;
+    String url;
 
     Species({
         this.name,
@@ -140,8 +140,8 @@ class Species {
 }
 
 class GameIndex {
-    int? gameIndex;
-    Species? version;
+    int gameIndex;
+    Species version;
 
     GameIndex({
         this.gameIndex,
@@ -155,13 +155,13 @@ class GameIndex {
 
     Map<String, dynamic> toJson() => {
         "game_index": gameIndex,
-        "version": version!.toJson(),
+        "version": version.toJson(),
     };
 }
 
 class HeldItem {
-    Species? item;
-    List<HeldItemVersionDetail>? versionDetails;
+    Species item;
+    List<HeldItemVersionDetail> versionDetails;
 
     HeldItem({
         this.item,
@@ -174,14 +174,14 @@ class HeldItem {
     );
 
     Map<String, dynamic> toJson() => {
-        "item": item!.toJson(),
-        "version_details": List<dynamic>.from(versionDetails!.map((x) => x.toJson())),
+        "item": item.toJson(),
+        "version_details": List<dynamic>.from(versionDetails.map((x) => x.toJson())),
     };
 }
 
 class HeldItemVersionDetail {
-    int? rarity;
-    Species? version;
+    int rarity;
+    Species version;
 
     HeldItemVersionDetail({
         this.rarity,
@@ -195,13 +195,13 @@ class HeldItemVersionDetail {
 
     Map<String, dynamic> toJson() => {
         "rarity": rarity,
-        "version": version!.toJson(),
+        "version": version.toJson(),
     };
 }
 
 class LocationAreaEncounter {
-    Species? locationArea;
-    List<LocationAreaEncounterVersionDetail>? versionDetails;
+    Species locationArea;
+    List<LocationAreaEncounterVersionDetail> versionDetails;
 
     LocationAreaEncounter({
         this.locationArea,
@@ -214,15 +214,15 @@ class LocationAreaEncounter {
     );
 
     Map<String, dynamic> toJson() => {
-        "location_area": locationArea!.toJson(),
-        "version_details": List<dynamic>.from(versionDetails!.map((x) => x.toJson())),
+        "location_area": locationArea.toJson(),
+        "version_details": List<dynamic>.from(versionDetails.map((x) => x.toJson())),
     };
 }
 
 class LocationAreaEncounterVersionDetail {
-    int? maxChance;
-    List<EncounterDetail>? encounterDetails;
-    Species? version;
+    int maxChance;
+    List<EncounterDetail> encounterDetails;
+    Species version;
 
     LocationAreaEncounterVersionDetail({
         this.maxChance,
@@ -238,17 +238,17 @@ class LocationAreaEncounterVersionDetail {
 
     Map<String, dynamic> toJson() => {
         "max_chance": maxChance,
-        "encounter_details": List<dynamic>.from(encounterDetails!.map((x) => x.toJson())),
-        "version": version!.toJson(),
+        "encounter_details": List<dynamic>.from(encounterDetails.map((x) => x.toJson())),
+        "version": version.toJson(),
     };
 }
 
 class EncounterDetail {
-    int? minLevel;
-    int? maxLevel;
-    List<Species>? conditionValues;
-    int? chance;
-    Species? method;
+    int minLevel;
+    int maxLevel;
+    List<Species> conditionValues;
+    int chance;
+    Species method;
 
     EncounterDetail({
         this.minLevel,
@@ -269,15 +269,15 @@ class EncounterDetail {
     Map<String, dynamic> toJson() => {
         "min_level": minLevel,
         "max_level": maxLevel,
-        "condition_values": List<dynamic>.from(conditionValues!.map((x) => x.toJson())),
+        "condition_values": List<dynamic>.from(conditionValues.map((x) => x.toJson())),
         "chance": chance,
-        "method": method!.toJson(),
+        "method": method.toJson(),
     };
 }
 
 class Move {
-    Species? move;
-    List<VersionGroupDetail>? versionGroupDetails;
+    Species move;
+    List<VersionGroupDetail> versionGroupDetails;
 
     Move({
         this.move,
@@ -290,15 +290,15 @@ class Move {
     );
 
     Map<String, dynamic> toJson() => {
-        "move": move!.toJson(),
-        "version_group_details": List<dynamic>.from(versionGroupDetails!.map((x) => x.toJson())),
+        "move": move.toJson(),
+        "version_group_details": List<dynamic>.from(versionGroupDetails.map((x) => x.toJson())),
     };
 }
 
 class VersionGroupDetail {
-    int? levelLearnedAt;
-    Species? versionGroup;
-    Species? moveLearnMethod;
+    int levelLearnedAt;
+    Species versionGroup;
+    Species moveLearnMethod;
 
     VersionGroupDetail({
         this.levelLearnedAt,
@@ -314,20 +314,20 @@ class VersionGroupDetail {
 
     Map<String, dynamic> toJson() => {
         "level_learned_at": levelLearnedAt,
-        "version_group": versionGroup!.toJson(),
-        "move_learn_method": moveLearnMethod!.toJson(),
+        "version_group": versionGroup.toJson(),
+        "move_learn_method": moveLearnMethod.toJson(),
     };
 }
 
 class Sprites {
-    String? backFemale;
-    String? backShinyFemale;
-    String? backDefault;
-    String? frontFemale;
-    String? frontShinyFemale;
-    String? backShiny;
-    String? frontDefault;
-    String? frontShiny;
+    String backFemale;
+    String backShinyFemale;
+    String backDefault;
+    String frontFemale;
+    String frontShinyFemale;
+    String backShiny;
+    String frontDefault;
+    String frontShiny;
 
     Sprites({
         this.backFemale,
@@ -364,9 +364,9 @@ class Sprites {
 }
 
 class Stat {
-    int? baseStat;
-    int? effort;
-    Species? stat;
+    int baseStat;
+    int effort;
+    Species stat;
 
     Stat({
         this.baseStat,
@@ -383,13 +383,13 @@ class Stat {
     Map<String, dynamic> toJson() => {
         "base_stat": baseStat,
         "effort": effort,
-        "stat": stat!.toJson(),
+        "stat": stat.toJson(),
     };
 }
 
 class Type {
-    int? slot;
-    Species? type;
+    int slot;
+    Species type;
 
     Type({
         this.slot,
@@ -403,6 +403,6 @@ class Type {
 
     Map<String, dynamic> toJson() => {
         "slot": slot,
-        "type": type!.toJson(),
+        "type": type.toJson(),
     };
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MoveDetailPage extends StatefulWidget {
-  MoveDetailPage({Key? key}) : super(key: key);
+  MoveDetailPage({Key key}) : super(key: key);
 
   @override
   _MoveDetailPageState createState() => _MoveDetailPageState();

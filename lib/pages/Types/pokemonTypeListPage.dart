@@ -1,9 +1,10 @@
+import 'package:flutte_pokedex/helper/colorTheme.dart';
+import 'package:flutte_pokedex/model/pokemon.dart';
+import 'package:flutte_pokedex/model/pokemonList.dart';
+import 'package:flutte_pokedex/scoped_model/pokemonState.dart';
+import 'package:flutte_pokedex/widgets/HalfPainter.dart';
+import 'package:flutte_pokedex/widgets/customWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:poke_poke_dex/helper/colorTheme.dart';
-import 'package:poke_poke_dex/model/pokemon.dart';
-import 'package:poke_poke_dex/model/pokemonList.dart';
-import 'package:poke_poke_dex/scoped_model/pokemonState.dart';
-import 'package:poke_poke_dex/widgets/customWidget.dart';
 import 'package:provider/provider.dart';
 
 
@@ -14,7 +15,7 @@ class PokemonTypeListPage extends StatefulWidget {
 class _PokemonTypeListPage extends State<PokemonTypeListPage>{
     
   List<Pokemon> list = [];
-  late AnimationController _controller;
+  AnimationController _controller;
   bool showFabButton =  false, card1 = true,card2= false, card3 = false;
   @override
   void dispose() {
@@ -49,7 +50,7 @@ class _PokemonTypeListPage extends State<PokemonTypeListPage>{
                             color: setSecondaryColor(model.type1),
                              fontSize: getFontSize(context,20),
                             fontWeight: FontWeight.w600),
-                            overflow: TextOverflow.ellipsis, context: context),
+                            overflow: TextOverflow.ellipsis),
               ),
               Positioned(
                   bottom: 0,
@@ -474,8 +475,8 @@ class _PokemonTypeListPage extends State<PokemonTypeListPage>{
 }
 
 class PokemonSearch extends SearchDelegate<PokemonListModel>{
-  late final List<PokemonListModel> list;
-   late List<PokemonListModel> templist;
+   final List<PokemonListModel> list;
+    List<PokemonListModel> templist;
   PokemonSearch(this.list);
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -491,7 +492,7 @@ class PokemonSearch extends SearchDelegate<PokemonListModel>{
   Widget buildLeading(BuildContext context) {
     return IconButton(
       onPressed: (){
-        close(context,PokemonListModel());
+        close(context, null);
       },
       icon: Icon(Icons.arrow_back,color: Theme.of(context).primaryColor,),
     );

@@ -15,10 +15,10 @@ class MovesResponse {
     List<Result> results;
 
     MovesResponse({
-       required this.count,
-       required this.next,
-       required this.previous,
-        required this.results,
+        this.count,
+        this.next,
+        this.previous,
+        this.results,
     });
 
     factory MovesResponse.fromJson(Map<String, dynamic> json) => MovesResponse(
@@ -41,8 +41,8 @@ class Result {
     String url;
 
     Result({
-       required this.name,
-        required this.url,
+        this.name,
+        this.url,
     });
 
     factory Result.fromJson(Map<String, dynamic> json) => Result(

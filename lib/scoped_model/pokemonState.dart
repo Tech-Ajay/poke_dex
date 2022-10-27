@@ -1,31 +1,31 @@
 import 'dart:convert';
 
+import 'package:flutte_pokedex/helper/constants.dart';
+import 'package:flutte_pokedex/model/pokemonDetail.dart';
+import 'package:flutte_pokedex/model/pokemonList.dart';
+import 'package:flutte_pokedex/model/pokemonMoves.dart';
+import 'package:flutte_pokedex/model/pokemonSpecies.dart';
+import 'package:flutte_pokedex/scoped_model/appState.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:poke_poke_dex/helper/constants.dart';
-import 'package:poke_poke_dex/model/pokemonDetail.dart';
-import 'package:poke_poke_dex/model/pokemonList.dart';
-import 'package:poke_poke_dex/model/pokemonMoves.dart';
-import 'package:poke_poke_dex/model/pokemonSpecies.dart';
-import 'package:poke_poke_dex/scoped_model/appState.dart';
 class PokemonState extends AppState {
 
-   PokemonState();
+  PokemonState();
   
   bool _isBusy = false;
   bool get isBusy => _isBusy;
-  late PokemonSpecies _pokemonSpecies;
+  PokemonSpecies _pokemonSpecies;
   PokemonSpecies get pokemonSpecies => _pokemonSpecies;
- late  PokemonDetail _pokemonDetail;
+  PokemonDetail _pokemonDetail;
   PokemonDetail get pokemonDetail => _pokemonDetail;
- late  PokemonMoves _pokemonMoves;
+  PokemonMoves _pokemonMoves;
   PokemonMoves get  pokemonMoves => _pokemonMoves;
- late  List<PokemonListModel> _pokemonList;
+  List<PokemonListModel> _pokemonList;
   List<PokemonListModel>  get pokemonList{
       if(_pokemonList != null){
         return List.from(_pokemonList);
       }
       else{
-        return [];
+        return null;
       }
   }
   void setApiBusy([bool isbusy = false]){

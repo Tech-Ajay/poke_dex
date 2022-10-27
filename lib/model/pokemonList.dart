@@ -13,24 +13,24 @@ List<PokemonListModel> pokemonListResponseFromJson(String str) {
 String pokemonListResponse(List<PokemonListModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class PokemonListModel {
-    String? id;
-    int? orderId;
-    int? nDex;
-    String? name;
-    String? type1;
-    String? type2;
-    String? ability1;
-    String? ability2;
-    String? hiddenability;
-    int? hp;
-    int? atk;
-    int? def;
-    int? spatk;
-    int? spdef;
-    int? spe;
-    String? note;
-    String? tier;
-    String? image;
+    String id;
+    int orderId;
+    int nDex;
+    String name;
+    String type1;
+    String type2;
+    String ability1;
+    String ability2;
+    String hiddenability;
+    int hp;
+    int atk;
+    int def;
+    int spatk;
+    int spdef;
+    int spe;
+    String note;
+    String tier;
+    String image;
 
     PokemonListModel({
         this.id,

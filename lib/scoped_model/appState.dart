@@ -1,3 +1,4 @@
+import 'package:flutte_pokedex/helper/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -12,7 +13,7 @@ class AppState extends ChangeNotifier {
     _isBusy = isbusy;
   }
 
-  Future<Response?> getAsync(String uri) async {
+  Future<Response> getAsync(String uri) async {
     
      var url =   uri ;
     //  var header = { "User-Agent":"BastionDiscordBot (https://bastionbot.org, v6.3)"};

@@ -1,15 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-Widget customText(String msg, {required TextStyle style,TextAlign textAlign = TextAlign.justify,overflow = TextOverflow.clip,required BuildContext context}){
+Widget customText(String msg, {TextStyle style,TextAlign textAlign = TextAlign.justify,overflow = TextOverflow.clip,BuildContext context}){
 
   if(msg == null){
     return SizedBox(height: 0,width: 0,);
   }
   else{
     if(context != null && style != null){
-      var fontSize = style.fontSize ?? Theme.of(context).textTheme.bodyText1!.fontSize;
-      style =  style.copyWith(fontSize: fontSize! - ( fullWidth(context) <= 375  ? 2 : 0));
+      var fontSize = style.fontSize ?? Theme.of(context).textTheme.bodyText1.fontSize;
+      style =  style.copyWith(fontSize: fontSize - ( fullWidth(context) <= 375  ? 2 : 0));
     }
     return Text(msg,style: style,textAlign: textAlign,overflow:overflow,);
   }

@@ -5,7 +5,7 @@ import '../../../model/pokemonList.dart';
 import '../../../widgets/customWidget.dart';
 
 class PokemonCard2 extends StatelessWidget {
-  const PokemonCard2({Key? key, required this.model, required this.onPressed, required this.onLongPressed})
+  const PokemonCard2({Key key, this.model, this.onPressed, this.onLongPressed})
       : super(key: key);
 
   final PokemonListModel model;
@@ -15,8 +15,8 @@ class PokemonCard2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onPressed,
-      onLongPress: () => onLongPressed,
+      onTap: onPressed,
+      onLongPress: onLongPressed,
       child: Container(
         decoration: BoxDecoration(
             color: setprimaryColor(model.type1),
